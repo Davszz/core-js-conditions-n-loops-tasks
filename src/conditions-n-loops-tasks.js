@@ -21,8 +21,11 @@
  *  0  => true
  *  -5 => false
  */
-function isPositive(/* number */) {
-  throw new Error('Not implemented');
+function isPositive(number) {
+  if (number >= 0) {
+    return true;
+  }
+  return false;
 }
 
 /**
@@ -38,8 +41,15 @@ function isPositive(/* number */) {
  *  -5, 0, 5      => 5
  *  -0.1, 0, 0.2  => 0.2
  */
-function getMaxNumber(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getMaxNumber(a, b, c) {
+  if (a > b) {
+    if (a > c) {
+      return a;
+    }
+  } else if (b > c) {
+    return b;
+  }
+  return c;
 }
 
 /**
@@ -82,8 +92,17 @@ function canQueenCaptureKing(/* queen, king */) {
  *  2, 2, 5   => false
  *  3, 0, 3   => false
  */
-function isIsoscelesTriangle(/* a, b, c */) {
-  throw new Error('Not implemented');
+function isIsoscelesTriangle(a, b, c) {
+  if (a === b) {
+    return a + b > c && c > 0;
+  }
+  if (a === c) {
+    return a + c > b && b > 0;
+  }
+  if (b === c) {
+    return b + c > a && a > 0;
+  }
+  return false;
 }
 
 /**
@@ -100,8 +119,89 @@ function isIsoscelesTriangle(/* a, b, c */) {
  *  10  => X
  *  26  => XXVI
  */
-function convertToRomanNumerals(/* num */) {
-  throw new Error('Not implemented');
+function convertToRomanNumerals(num) {
+  switch (num) {
+    case 1:
+      return 'I';
+    case 2:
+      return 'II';
+    case 3:
+      return 'III';
+    case 4:
+      return 'IV';
+    case 5:
+      return 'V';
+    case 6:
+      return 'VI';
+    case 7:
+      return 'VII';
+    case 8:
+      return 'VIII';
+    case 9:
+      return 'IX';
+    case 10:
+      return 'X';
+    case 11:
+      return 'XI';
+    case 12:
+      return 'XII';
+    case 13:
+      return 'XIII';
+    case 14:
+      return 'XIV';
+    case 15:
+      return 'XV';
+    case 16:
+      return 'XVI';
+    case 17:
+      return 'XVII';
+    case 18:
+      return 'XVIII';
+    case 19:
+      return 'XIX';
+    case 20:
+      return 'XX';
+    case 21:
+      return 'XXI';
+    case 22:
+      return 'XXII';
+    case 23:
+      return 'XXIII';
+    case 24:
+      return 'XXIV';
+    case 25:
+      return 'XXV';
+    case 26:
+      return 'XXVI';
+    case 27:
+      return 'XXVII';
+    case 28:
+      return 'XXVIII';
+    case 29:
+      return 'XXIX';
+    case 30:
+      return 'XXX';
+    case 31:
+      return 'XXXI';
+    case 32:
+      return 'XXXII';
+    case 33:
+      return 'XXXIII';
+    case 34:
+      return 'XXXIV';
+    case 35:
+      return 'XXXV';
+    case 36:
+      return 'XXXVI';
+    case 37:
+      return 'XXXVII';
+    case 38:
+      return 'XXXVIII';
+    case 39:
+      return 'XXXIX';
+    default:
+      return 'Нет совпадений';
+  }
 }
 
 /**
@@ -153,8 +253,11 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+function getIndexOf(str, letter) {
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) return i;
+  }
+  return -1;
 }
 
 /**
@@ -172,8 +275,12 @@ function getIndexOf(/* str, letter */) {
  *  12345, 0    => false
  *  12345, 6    => false
  */
-function isContainNumber(/* num, digit */) {
-  throw new Error('Not implemented');
+function isContainNumber(num, digit) {
+  const str = String(num);
+  for (let i = 0; i < str.length; i += 1) {
+    if (Number(str[i]) === digit) return true;
+  }
+  return false;
 }
 
 /**

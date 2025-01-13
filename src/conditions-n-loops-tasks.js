@@ -219,8 +219,56 @@ function convertToRomanNumerals(num) {
  *  '10,5'    => 'one zero point five'
  *  '1950.2'  => 'one nine five zero point two'
  */
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+function convertNumberToString(numberStr) {
+  let result = '';
+
+  for (let i = 0; i < numberStr.length; i += 1) {
+    switch (numberStr[i]) {
+      case '1':
+        result += 'one';
+        break;
+      case '2':
+        result += 'two';
+        break;
+      case '3':
+        result += 'three';
+        break;
+      case '4':
+        result += 'four';
+        break;
+      case '5':
+        result += 'five';
+        break;
+      case '6':
+        result += 'six';
+        break;
+      case '7':
+        result += 'seven';
+        break;
+      case '8':
+        result += 'eight';
+        break;
+      case '9':
+        result += 'nine';
+        break;
+      case '0':
+        result += 'zero';
+        break;
+      case '.':
+      case ',':
+        result += 'point';
+        break;
+      case '-':
+        result += 'minus';
+        break;
+      default:
+        result += '';
+    }
+    if (i !== numberStr.length - 1) {
+      result += ' ';
+    }
+  }
+  return result;
 }
 
 /**
@@ -235,8 +283,14 @@ function convertNumberToString(/* numberStr */) {
  *  '0123210'   => true
  *  'qweqwe'    => false
  */
-function isPalindrome(/* str */) {
-  throw new Error('Not implemented');
+function isPalindrome(str) {
+  let step = 0;
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === str[str.length - 1 - i]) {
+      step += 1;
+    }
+  }
+  return step === str.length;
 }
 
 /**
@@ -358,8 +412,23 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
-function sortByAsc(/* arr */) {
-  throw new Error('Not implemented');
+function sortByAsc(arr) {
+  let step = 0;
+  const newArr = arr;
+
+  for (let i = 1; i < newArr.length; i += 1) {
+    step = newArr[i];
+    let j = i - 1;
+
+    while (j >= 0 && newArr[j] > step) {
+      newArr[j + 1] = newArr[j];
+      j -= 1;
+    }
+
+    newArr[j + 1] = step;
+  }
+
+  return newArr;
 }
 
 /**

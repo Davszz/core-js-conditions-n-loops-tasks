@@ -70,8 +70,11 @@ function getMaxNumber(a, b, c) {
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  * {x: 1, y: 1}, {x: 2, y: 8} => false
  */
-function canQueenCaptureKing(/* queen, king */) {
-  throw new Error('Not implemented');
+function canQueenCaptureKing(queen, king) {
+  if (queen.x === king.x) return true;
+  if (queen.y === king.y) return true;
+  if (Math.abs(queen.x - king.x) === Math.abs(queen.y - king.y)) return true;
+  return false;
 }
 
 /**
@@ -350,8 +353,20 @@ function isContainNumber(num, digit) {
  *  [2, 3, 9, 5] => 2       => 2 + 3 === 5 then balance element is 9 and its index = 2
  *  [1, 2, 3, 4, 5] => -1   => no balance element
  */
-function getBalanceIndex(/* arr */) {
-  throw new Error('Not implemented');
+function getBalanceIndex(arr) {
+  let left = 0;
+  let right = 0;
+  for (let i = 1; i <= arr.length - 1; i += 1) {
+    right += arr[i];
+  }
+  for (let i = 0; i <= arr.length - 1; i += 1) {
+    if (left === right) {
+      return i;
+    }
+    left += arr[i];
+    right -= arr[i + 1];
+  }
+  return -1;
 }
 
 /**
@@ -448,8 +463,19 @@ function sortByAsc(arr) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
-function shuffleChar(/* str, iterations */) {
-  throw new Error('Not implemented');
+function shuffleChar(str, iterations) {
+  let result = str;
+  for (let i = 1; i <= iterations; i += 1) {
+    const arr = ['', ''];
+    for (let j = 0; j < result.length; j += 1) {
+      arr[j % 2] += result[j];
+    }
+    result = arr[0] + arr[1];
+    if (result === str) {
+      return shuffleChar(str, iterations % i);
+    }
+  }
+  return result;
 }
 
 /**
